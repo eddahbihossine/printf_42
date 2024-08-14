@@ -6,13 +6,11 @@
 #    By: heddahbi <heddahbi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 02:20:46 by heddahbi          #+#    #+#              #
-#    Updated: 2022/11/21 06:14:29 by heddahbi         ###   ########.fr        #
+#    Updated: 2024/08/14 07:03:49 by heddahbi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			=	ft_printf.c ft_putchar_n_count.c \
-					ft_puthexa_ncount.c ft_putstr_n_count.c\
-					ft_putnbr_n_count.c ft_putunnbr_n_count.c
+SRCS			=	$(wildcard srcs/*.c)
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -25,14 +23,14 @@ NAME			= printf.a
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
-%.o: %.c 
-	$(CC) $(CFLAGS) -c $<
+				ar rc $(NAME) $(OBJS) 
+				ranlib $(NAME)
+
 clean:
-				 $(RM) $(OBJS) 
+				$(RM) $(OBJS)
 
 fclean:			clean
 				$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re:				fclean all
 
