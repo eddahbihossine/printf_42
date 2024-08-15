@@ -1,6 +1,4 @@
-Here's a README template for a 42 `ft_printf` project:
 
----
 
 # 📊 ft_printf
 
